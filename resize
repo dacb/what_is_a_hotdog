@@ -1,0 +1,18 @@
+#!/bin/bash
+
+for dir in "train test"
+do
+	echo $dir
+	cd $dir
+	for d in `\ls -d *`
+	do
+		echo $d
+		cd $d
+		for file in `\ls *`
+		do
+			echo $file
+			mogrify $file -thumbnail '64x64>' -gravity center -background white -extent 64x64 -set colorspace Gray -separate -average
+		done
+		cd ..
+	done
+done
