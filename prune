@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ "$argv" == "test" ]; then
+	echo pruning test set
+	cd test
+	for dir in `ls -d *`
+	do
+		cd $dir
+		\rm -rf [12345678]?.*.jpg
+		\rm -rf [123456789].*.jpg
+		cd ..
+	done
+elif [ "$argv" == "train" ]; then
+	echo pruning training set
+	for dir in `ls -d *`
+	do
+		cd $dir
+		\rm -rf [9]?.*.jpg
+		\rm -rf 100.*.jpg
+		cd ..
+	done
+else
+	echo "usage: ./prune [test | train]"
+fi
