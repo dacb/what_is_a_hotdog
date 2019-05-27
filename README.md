@@ -10,3 +10,6 @@ You will need:
 * Pandas
 
 There is a `requirements.txt` and an `environment.yml` for both `pip` or `conda` environment management.  If you go the `conda` route it may be that you have to `pip install pyro-ppl` after building the `conda` environment.
+
+# Note
+This is not intended to be a serious approach.  But it is a sandiwch.
