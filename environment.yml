@@ -113,7 +113,6 @@ dependencies:
     - google-images-download
     - opt-einsum
     - pyro-ppl
-    - python-graphviz
     - selenium
     - tqdm
     - urllib3
