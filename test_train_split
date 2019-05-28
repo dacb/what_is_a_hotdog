@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [ "$1" == "test" ]; then
+	echo pruning test set
+	cd test
+	for dir in `ls -d *`
+	do
+		cd $dir
+		echo $dir
+		for file in `ls *`
+		do
+			number=`echo $file | awk -F'.' '{ print $1 }'`
+			if [ "$number" -ge "100" ]
+			then
+				\rm -rf $file
+			fi
+		done
+		cd ..
+	done
+elif [ "$1" == "train" ]; then
+	echo pruning training set
+	cd train
+	for dir in `ls -d *`
+	do
+		cd $dir
+		echo $dir
+		for file in `ls *`
+		do
+			number=`echo $file | awk -F'.' '{ print $1 }'`
+			if [ "$number" -lt "100" ]
+			then
+				\rm -rf $file
+				true
+			fi
+		done
+		cd ..
+	done
+else
+	echo "usage: $0 [test | train]"
+fi

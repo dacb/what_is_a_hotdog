@@ -1,11 +1,23 @@
 #!/bin/bash
 
-googleimagesdownload -l 1000 -s medium -kf keywords.txt -cd ./chromedriver
+if [ ! -d "downloads" ]
+then
+	googleimagesdownload -l 1000 -s medium -kf keywords.txt -cd ./chromedriver
 
-mkdir hotdog
-mv downloads/hotdog hotdog
-cp -av downloads test
-cp -av downloads train
-./prune test
-./prune train
-./resize
+	mkdir hotdog
+	mv downloads/hotdog hotdog
+fi
+
+if [ ! -d "test" ]
+then
+	cp -av downloads test
+	./test_train_split test
+fi
+
+if [ ! -d "train" ]
+then
+	cp -av downloads train
+	./test_train_split train
+fi
+
+#./resize
