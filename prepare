@@ -1,17 +1,11 @@
 #!/bin/bash
 
-googleimagesdownload -k hotdog -s medium -o . -l 100
-googleimagesdownload -k sandwich -s medium -l 100
-googleimagesdownload -k soup -s medium -l 100
-googleimagesdownload -k pizza -s medium -l 100
-googleimagesdownload -k calzone -s medium -l 100
-googleimagesdownload -k burrito -s medium -l 100
-googleimagesdownload -k lasagna -s medium -l 100
-googleimagesdownload -k sushi -s medium -l 100
-googleimagesdownload -k salad -s medium -l 100
-googleimagesdownload -k muffins -s medium -l 100
+googleimagesdownload -l 1000 -s medium -kf keywords.txt -cd ./chromedriver
 
+mkdir hotdog
+mv downloads/hotdog hotdog
 cp -av downloads test
 cp -av downloads train
 ./prune test
 ./prune train
+./resize
