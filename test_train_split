@@ -9,10 +9,14 @@ if [ "$1" == "test" ]; then
 		echo $dir
 		for file in `ls *`
 		do
-			number=`echo $file | awk -F'.' '{ print $1 }'`
+			number=`echo "$file" | awk -F'.' '{ print $1 }'`
+			parse_fail=`file "$file" | grep -e RIFF -e gzip -e HTML | wc -l`
 			if [ "$number" -ge "100" ]
 			then
-				\rm -rf $file
+				\rm -rf "$file"
+			elif [ "$parse_fail" -gt 0 ]
+			then
+				\rm -rf "$file"
 			fi
 		done
 		cd ..
@@ -26,11 +30,14 @@ elif [ "$1" == "train" ]; then
 		echo $dir
 		for file in `ls *`
 		do
-			number=`echo $file | awk -F'.' '{ print $1 }'`
+			number=`echo "$file" | awk -F'.' '{ print $1 }'`
+			parse_fail=`file "$file" | grep -e RIFF -e gzip -e HTML | wc -l`
 			if [ "$number" -lt "100" ]
 			then
-				\rm -rf $file
-				true
+				\rm -rf "$file"
+			elif [ "$parse_fail" -gt 0 ]
+			then
+				\rm -rf "$file"
 			fi
 		done
 		cd ..
