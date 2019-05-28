@@ -1,0 +1,11 @@
+hotdog
+sandwich
+soup
+pizza
+calzone
+burrito
+lasagna
+sushi
+salad
+muffin
+cereal
