@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dacb/what_is_a_hotdog/master?filepath=bnn.ipynb)
+
 # what_is_a_hotdog
 Using machine learning to figure out if a hotdog is a sandwich
 
