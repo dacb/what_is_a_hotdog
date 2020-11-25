@@ -7,4 +7,4 @@ Using machine learning to figure out if a hotdog is a sandwich
 Create the environement with `conda` and `environment.yml`
 
 # Note
-This is not intended to be a serious approach.  But it is a sandiwch.
+This is not intended to be a serious approach.  But it is a sandwich.
